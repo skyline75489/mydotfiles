@@ -7,8 +7,13 @@
 	branch = auto
 	interactive = auto
 [diff]
-	tool = bc3
+	tool = vimdiff
 [difftool]
 	prompt = false
 [merge]
 	tool = bc3
+[push]
+	default = simple
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
