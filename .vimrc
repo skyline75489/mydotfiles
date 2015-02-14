@@ -49,8 +49,8 @@ endif
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 
-if &t_Co > 2 || has("gui_running")
-  syntax on
+if &t_Co > 2 || has("gui_running") || has("gui_vimr")
+  set guifont="Inconsolata for Powerline":18
   set hlsearch
 endif
 
@@ -102,22 +102,14 @@ set number
 set cursorline
 set ts=4
 set expandtab
-"colorscheme desert
-"set background=dark
-"colorscheme solarized
-colorscheme mycolor
-"let g:solarized_termcolors=256
+syntax on
+"le g:solarized_termcolors=256
 
 set nobackup
-
-"GO lang
-filetype off
-filetype plugin indent off
-set runtimepath+=/usr/local/go/misc/vim
-filetype plugin indent on
-syntax on
 
 set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936
 
 "powerline
-"set rtp+=/home/skyline/OpenSource/powerline/powerline/bindings/vim
+"set rtp+=/Users/skyline/Projects/powerline/powerline/bindings/vim
+set laststatus=2
+"let g:airline_powerline_fonts=1
