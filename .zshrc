@@ -133,17 +133,11 @@ fi
 # Autojump
 #[[ -s /etc/profile.d/autojump.sh ]] && . /etc/profile.d/autojump.sh
 
-# Fasd
-eval "$(fasd --init auto)"
-
 # Dircolors
 #eval `dircolors /usr/src/dircolors-solarized/dircolors.256dark`
 alias grep='grep --color=auto'
-alias ls='ls --color=auto'
+alias ls='ls -G'
 
-# Home Dir
-alias download='cd $HOME/下载'
-alias documents='cd $HOME/文档'
 # Alias
 # Push and pop directories on directory stack
 #alias pu='pushd'
