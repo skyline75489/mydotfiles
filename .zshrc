@@ -176,6 +176,7 @@ then
 else
     alias history='fc -l 1'
 fi
+
 # List direcory contents
 alias lsa='ls -lah'
 alias l='ls -la'
@@ -184,6 +185,11 @@ alias la='ls -lA'
 alias sl=ls # often screw this up
 
 alias afind='ack-grep -il'
+
+# Git
+alias gs='git status'
+alias gp='git push'
+alias gcam='git commit -am'
 
 # Correction
 alias man='nocorrect man'
@@ -271,3 +277,4 @@ if [[ $use_sudo -eq 1 ]]; then
 
 fi
 
+REACT_EDITOR=atom
