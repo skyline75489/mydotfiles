@@ -100,7 +100,7 @@ endif
 "Look and Feel
 set number
 set cursorline
-set ts=4
+set tabstop=8
 set expandtab
 syntax on
 "le g:solarized_termcolors=256
