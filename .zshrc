@@ -190,6 +190,7 @@ alias afind='ack-grep -il'
 alias gs='git status'
 alias gp='git push'
 alias gcam='git commit -am'
+alias gd='git diff'
 
 # Correction
 alias man='nocorrect man'
