@@ -191,6 +191,7 @@ alias gs='git status'
 alias gp='git push'
 alias gcam='git commit -am'
 alias gd='git diff'
+alias gl='git log'
 
 # Correction
 alias man='nocorrect man'
