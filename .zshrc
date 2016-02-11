@@ -190,7 +190,8 @@ alias afind='ack-grep -il'
 alias gs='git status'
 alias gp='git push'
 alias gcam='git commit -am'
-alias gd='git diff'
+alias gck='git checkout'
+alias gd="git diff --color|diff-so-fancy"
 alias gl='git log'
 
 # Correction
@@ -280,3 +281,6 @@ if [[ $use_sudo -eq 1 ]]; then
 fi
 
 REACT_EDITOR=atom
+
+eval $(thefuck --alias)
+
