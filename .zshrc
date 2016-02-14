@@ -191,7 +191,7 @@ alias gs='git status'
 alias gp='git push'
 alias gcam='git commit -am'
 alias gck='git checkout'
-alias gd="git diff --color|diff-so-fancy"
+alias gd="git diff --color"
 alias gl='git log'
 
 # Correction
