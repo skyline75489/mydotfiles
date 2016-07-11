@@ -2,10 +2,11 @@
 	name = skyline75489
 	email = skyline75489@outlook.com
 [color]
-	status = auto
-	diff = auto
-	branch = auto
-	interactive = auto
+	status = true
+	diff = true
+	branch = true
+	interactive = true
+	ui = true
 [diff]
 	tool = vimdiff
 [difftool]
@@ -17,3 +18,7 @@
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
