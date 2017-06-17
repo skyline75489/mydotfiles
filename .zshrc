@@ -279,8 +279,3 @@ if [[ $use_sudo -eq 1 ]]; then
         ?not(~n`uname -r`))'
 
 fi
-
-REACT_EDITOR=atom
-
-eval $(thefuck --alias)
-
