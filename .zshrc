@@ -1,5 +1,5 @@
 # PATH
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/jdk7/bin:/usr/local/go/bin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.cargo/bin:/usr/local/go/bin:$HOME/.fastlane/bin"
 # Set up the prompt
 autoload colors terminfo
 
