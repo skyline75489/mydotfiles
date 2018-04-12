@@ -278,3 +278,5 @@ if [[ $use_sudo -eq 1 ]]; then
         ?not(~n`uname -r`))'
 
 fi
+
+. ~/z.sh
