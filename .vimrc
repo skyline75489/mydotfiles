@@ -48,11 +48,7 @@ endif
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
-
-if &t_Co > 2 || has("gui_running") || has("gui_vimr")
-  set guifont="Inconsolata for Powerline":18
-  set hlsearch
-endif
+set hlsearch
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
