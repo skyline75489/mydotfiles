@@ -279,4 +279,5 @@ if [[ $use_sudo -eq 1 ]]; then
 
 fi
 
-. ~/z.sh
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
