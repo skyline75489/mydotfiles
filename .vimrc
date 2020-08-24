@@ -105,7 +105,8 @@ set nobackup
 
 set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936
 
-"powerline
-"set rtp+=/Users/skyline/Projects/powerline/powerline/bindings/vim
 set laststatus=2
-"let g:airline_powerline_fonts=1
+
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[4 q"
+let &t_EI = "\<Esc>[2 q"
