@@ -9,40 +9,11 @@ autoload colors terminfo
 
 typeset -Ag FX FG BG
 
-FX=(
-    reset     "%{[00m%}"
-    bold      "%{[01m%}" no-bold      "%{[22m%}"
-    italic    "%{[03m%}" no-italic    "%{[23m%}"
-    underline "%{[04m%}" no-underline "%{[24m%}"
-    blink     "%{[05m%}" no-blink     "%{[25m%}"
-    reverse   "%{[07m%}" no-reverse   "%{[27m%}"
-)
-
-for color in {000..255}; do
-    FG[$color]="%{[38;5;${color}m%}"
-    BG[$color]="%{[48;5;${color}m%}"
-done
-
-# Show all 256 colors with color number
-function spectrum_ls() {
-  for code in {000..255}; do
-    print -P -- "$code: %F{$code}Test%f"
-  done
-}
-
-# Show all 256 colors where the background is set to specific color
-function spectrum_bls() {
-  for code in {000..255}; do
-    ((cc = code + 1))
-    print -P -- "$BG[$code]$code: Test %{$reset_color%}"
-  done
-}
-
-PROMPT="$terminfo[reset]$FG[154]%n%{$reset_color%}\
-$terminfo[reset]$FG[255]@\
-$FG[110]%m%{$reset_color%} \
-$FG[220]%~%{$reset_color%}
-$FX[reset]$FG[255]>"
+PROMPT="$terminfo[reset]%F{154}%n%F{reset}\
+$terminfo[reset]%F{255}@\
+%F{110}%m%F{reset} \
+%F{220}%~%F{reset}
+%F{reset}%F{255}>"
 
 setopt histignorealldups 
 setopt APPEND_HISTORY
