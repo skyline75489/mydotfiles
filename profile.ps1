@@ -11,6 +11,10 @@ if (-Not $IsWindows) {
     }
 }
 
+function .. {
+    cd ..
+}
+
 function ... {
     cd ../../
 }
