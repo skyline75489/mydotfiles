@@ -9,6 +9,14 @@ if (-Not $IsWindows) {
     function la {
         ls -lAhG
     }
+} else {
+    function ll {
+        ls
+    }
+
+    function la {
+        ls -Force
+    }
 }
 
 function .. {
