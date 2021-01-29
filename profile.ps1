@@ -39,6 +39,7 @@ function prompt {
     $p = $($executionContext.SessionState.Path.CurrentLocation)
     $converted_path = Convert-Path $p
     $ansi_escape = [char]27
+    Write-Host $Env:CONDA_PROMPT_MODIFIER -NoNewline
     Write-Host $env:USERNAME -ForegroundColor Green -NoNewline
     Write-Host "@" -ForegroundColor White -NoNewLine
     Write-Host $env:COMPUTERNAME -ForegroundColor Blue -NoNewLine
