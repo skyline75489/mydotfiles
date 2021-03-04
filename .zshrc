@@ -4,6 +4,8 @@ export GO11MODULE=on
 export GO111MODULE=on
 export GOPROXY=https://goproxy.io
 
+export MPW_FULLNAME="Chester Liu"
+
 # Set up the prompt
 autoload colors terminfo
 
