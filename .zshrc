@@ -187,6 +187,11 @@ if [[ "$ENABLE_CORRECTION" == "true" ]]; then
   setopt correct_all
 fi
 
+# Tmux
+alias tmuxhome='tmux a -t home'
+alias tmuxnhome='tmux new-session -s home'
+alias tmuxchome='tmux -CC a -t home'
+
 # Debian
 # Authors:
 # https://github.com/AlexBio
