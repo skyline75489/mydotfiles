@@ -2,25 +2,18 @@
 // It should still be usable in newer versions, but newer versions might have additional
 // settings, help text, or changes that you will not see unless you clear this file
 // and let us generate a new one for you.
-
 // To view the default settings, hold "alt" while clicking on the "Settings" button.
 // For documentation on these settings, see: https://aka.ms/terminal-documentation
 {
   "$schema": "https://aka.ms/terminal-profiles-schema",
-
   "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-
   "alwaysShowTabs": false,
-
   // You can add more global application settings here.
   // To learn more about global settings, visit https://aka.ms/terminal-global-settings
-
   // If enabled, selections are automatically copied to your clipboard.
   "copyOnSelect": false,
-
   // If enabled, formatted data is also copied to your clipboard
   "copyFormatting": false,
-
   // A profile specifies a command to execute paired with information about how it should look and feel.
   // Each one of them will appear in the 'New Tab' dropdown,
   //   and can be invoked from the commandline with `wt.exe -p xxx`
@@ -118,7 +111,6 @@
       }
     ]
   },
-
   // Add custom color schemes to this array.
   // To learn more about color schemes, visit https://aka.ms/terminal-color-schemes
   "schemes": [
@@ -226,9 +218,31 @@
       "red": "#8D0C0C",
       "white": "#6E386E",
       "yellow": "#991070"
+    },
+    {
+      "name": "Dracula",
+      "cursorColor": "#F8F8F2",
+      "selectionBackground": "#44475A",
+      "background": "#282A36",
+      "foreground": "#F8F8F2",
+      "black": "#21222C",
+      "blue": "#BD93F9",
+      "cyan": "#8BE9FD",
+      "green": "#50FA7B",
+      "purple": "#FF79C6",
+      "red": "#FF5555",
+      "white": "#F8F8F2",
+      "yellow": "#F1FA8C",
+      "brightBlack": "#6272A4",
+      "brightBlue": "#D6ACFF",
+      "brightCyan": "#A4FFFF",
+      "brightGreen": "#69FF94",
+      "brightPurple": "#FF92DF",
+      "brightRed": "#FF6E6E",
+      "brightWhite": "#FFFFFF",
+      "brightYellow": "#FFFFA5"
     }
   ],
-
   // Add custom keybindings to this array.
   // To unbind a key combination from your defaults.json, set the command to "unbound".
   // To learn more about keybindings, visit https://aka.ms/terminal-keybindings
@@ -236,13 +250,26 @@
     // Copy and paste are bound to Ctrl+Shift+C and Ctrl+Shift+V in your defaults.json.
     // These two lines additionally bind them to Ctrl+C and Ctrl+V.
     // To learn more about selection, visit https://aka.ms/terminal-selection
-    { "command": { "action": "copy", "singleLine": false }, "keys": "ctrl+c" },
-    { "command": "paste", "keys": "ctrl+v" },
-
+    {
+      "command": {
+        "action": "copy",
+        "singleLine": false
+      },
+      "keys": "ctrl+c"
+    },
+    {
+      "command": "paste",
+      "keys": "ctrl+v"
+    },
     // Press Ctrl+Shift+F to open the search box
-    { "command": "find", "keys": "ctrl+shift+f" },
-
-    { "command": "commandPalette", "keys": "ctrl+shift+p" },
+    {
+      "command": "find",
+      "keys": "ctrl+shift+f"
+    },
+    {
+      "command": "commandPalette",
+      "keys": "ctrl+shift+p"
+    },
     // Press Alt+Shift+D to open a new pane.
     // - "split": "auto" makes this pane open in the direction that provides the most surface area.
     // - "splitMode": "duplicate" makes the new pane use the focused pane's profile.
@@ -255,16 +282,69 @@
       },
       "keys": "alt+shift+d"
     },
-
-    { "command": { "action": "switchToTab", "index": 0 }, "keys": "ctrl+1" },
-    { "command": { "action": "switchToTab", "index": 1 }, "keys": "ctrl+2" },
-    { "command": { "action": "switchToTab", "index": 2 }, "keys": "ctrl+3" },
-    { "command": { "action": "switchToTab", "index": 3 }, "keys": "ctrl+4" },
-    { "command": { "action": "switchToTab", "index": 4 }, "keys": "ctrl+5" },
-    { "command": { "action": "switchToTab", "index": 5 }, "keys": "ctrl+6" },
-    { "command": { "action": "switchToTab", "index": 6 }, "keys": "ctrl+7" },
-    { "command": { "action": "switchToTab", "index": 7 }, "keys": "ctrl+8" },
-    { "command": { "action": "switchToTab", "index": 8 }, "keys": "ctrl+9" },
+    {
+      "command": {
+        "action": "switchToTab",
+        "index": 0
+      },
+      "keys": "ctrl+1"
+    },
+    {
+      "command": {
+        "action": "switchToTab",
+        "index": 1
+      },
+      "keys": "ctrl+2"
+    },
+    {
+      "command": {
+        "action": "switchToTab",
+        "index": 2
+      },
+      "keys": "ctrl+3"
+    },
+    {
+      "command": {
+        "action": "switchToTab",
+        "index": 3
+      },
+      "keys": "ctrl+4"
+    },
+    {
+      "command": {
+        "action": "switchToTab",
+        "index": 4
+      },
+      "keys": "ctrl+5"
+    },
+    {
+      "command": {
+        "action": "switchToTab",
+        "index": 5
+      },
+      "keys": "ctrl+6"
+    },
+    {
+      "command": {
+        "action": "switchToTab",
+        "index": 6
+      },
+      "keys": "ctrl+7"
+    },
+    {
+      "command": {
+        "action": "switchToTab",
+        "index": 7
+      },
+      "keys": "ctrl+8"
+    },
+    {
+      "command": {
+        "action": "switchToTab",
+        "index": 8
+      },
+      "keys": "ctrl+9"
+    },
     {
       "command": {
         "action": "splitPane",
