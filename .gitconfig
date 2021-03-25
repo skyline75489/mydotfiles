@@ -1,6 +1,8 @@
 [user]
 	name = skyline75489
 	email = skyline75489@outlook.com
+[core]
+        editor = vim
 [color]
 	status = true
 	diff = true
