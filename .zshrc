@@ -162,6 +162,7 @@ if ! type "exa" > /dev/null; then
    alias sl=ls # often screw this up
 else
    alias l='exa'
+   alias ls='exa'
    alias ll='exa -l'
    alias la='exa -la'
    alias lg='exa -l --git'
