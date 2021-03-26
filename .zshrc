@@ -113,7 +113,6 @@ fi
 # Dircolors
 #eval `dircolors /usr/src/dircolors-solarized/dircolors.256dark`
 alias grep='grep --color=auto'
-alias ls='ls -G'
 
 # Alias
 # Push and pop directories on directory stack
@@ -155,10 +154,19 @@ else
 fi
 
 # List direcory contents
-alias l='ls -lah'
-alias ll='ls -lh'
-alias la='ls -lAh'
-alias sl=ls # often screw this up
+if ! type "exa" > /dev/null; then
+   # install foobar here
+   alias l='ls -lah'
+   alias ll='ls -lh'
+   alias la='ls -lAh'
+   alias sl=ls # often screw this up
+else
+   alias l='exa'
+   alias ll='exa -l'
+   alias la='exa -la'
+   alias lg='exa -l --git'
+   alias sl='exa'
+fi
 
 alias afind='ack-grep -il'
 
