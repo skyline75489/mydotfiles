@@ -169,6 +169,15 @@ else
    alias sl='exa'
 fi
 
+# Cat
+if type "bat" > /dev/null; then
+   alias cat='bat --plain'
+   alias catn='bat'
+elif type "batcat" > /dev/null; then
+   alias cat='batcat --plain'
+   alias catn='batcat'
+fi
+
 alias afind='ack-grep -il'
 
 # Git
