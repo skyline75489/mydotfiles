@@ -1,0 +1,25 @@
+[username]
+style_user = "green bold"
+style_root = "black bold"
+format = "[$user]($style)"
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+format =  "@[$hostname](blue bold) "
+trim_at = ".companyname.com"
+disabled = false
+
+[directory]
+truncate_to_repo = false
+truncation_length = 8
+
+[conda]
+format = "[$symbol$environment](white) "
+
+[dotnet]
+disabled = true
+
+[java]
+disabled = true
