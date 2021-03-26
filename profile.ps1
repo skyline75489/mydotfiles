@@ -35,6 +35,18 @@ function c {
     clear
 }
 
+if (Get-Command "bat.exe" -ErrorAction SilentlyContinue)
+{
+    Remove-Alias cat
+    function cat($file) {
+        bat.exe --plain $file
+    }
+
+    function catn($file) {
+        bat.exe $file
+    }
+}
+
 function prompt {
     $p = $($executionContext.SessionState.Path.CurrentLocation)
     $converted_path = Convert-Path $p
