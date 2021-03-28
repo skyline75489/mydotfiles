@@ -2,20 +2,75 @@ if (-Not $IsWindows) {
     $env:USERNAME = $env:USER
     $env:COMPUTERNAME = $(hostname)
 
-    function ll {
-        ls -lhG
-    }
+    if (Get-Command "exa" -ErrorAction SilentlyContinue)
+    {
+        function l {
+            exa -la
+        }
 
-    function la {
-        ls -lAhG
+        function ls {
+            exa
+        }
+
+        function ll {
+            exa -l --git
+        }
+
+        function la {
+            exa -la --git
+        }
+
+        function sl {
+            exa
+        }
+    }
+    else
+    {
+        function l {
+            ls -lah
+        }
+
+        function ll {
+            ls -lhG
+        }
+
+        function la {
+            ls -lAhG
+        }
     }
 } else {
-    function ll {
-        ls
-    }
+    if (Get-Command "exa.exe" -ErrorAction SilentlyContinue)
+    {
+        Remove-Alias ls
+        function l {
+            exa -la
+        }
 
-    function la {
-        ls -Force
+        function ls {
+            exa
+        }
+
+        function ll {
+            exa -l --git
+        }
+
+        function la {
+            exa -la --git
+        }
+    }
+    else
+    {
+        function l {
+            ls -Force
+        }
+
+        function ll {
+            ls
+        }
+
+        function la {
+            ls -Force
+        }
     }
 }
 
