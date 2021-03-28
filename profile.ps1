@@ -38,6 +38,29 @@ if (-Not $IsWindows) {
             ls -lAhG
         }
     }
+
+    if (Get-Command "bat" -ErrorAction SilentlyContinue)
+    {
+        function cat($file) {
+            bat --plain $file
+        }
+
+        function catn($file) {
+            bat $file
+        }
+    }
+
+    if (Get-Command "batcat" -ErrorAction SilentlyContinue)
+    {
+        function cat($file) {
+            batcat --plain $file
+        }
+
+        function catn($file) {
+            batcat $file
+        }
+    }
+
 } else {
     if (Get-Command "exa.exe" -ErrorAction SilentlyContinue)
     {
@@ -72,6 +95,18 @@ if (-Not $IsWindows) {
             ls -Force
         }
     }
+
+    if (Get-Command "bat.exe" -ErrorAction SilentlyContinue)
+    {
+        Remove-Alias cat
+        function cat($file) {
+            bat.exe --plain $file
+        }
+
+        function catn($file) {
+            bat.exe $file
+        }
+    }
 }
 
 function .. {
@@ -88,18 +123,6 @@ function .... {
 
 function c {
     clear
-}
-
-if (Get-Command "bat.exe" -ErrorAction SilentlyContinue)
-{
-    Remove-Alias cat
-    function cat($file) {
-        bat.exe --plain $file
-    }
-
-    function catn($file) {
-        bat.exe $file
-    }
 }
 
 function prompt {
