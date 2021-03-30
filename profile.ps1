@@ -64,6 +64,10 @@ else {
 
 # Cat
 if (Get-Command "bat" -ErrorAction SilentlyContinue) {
+    if ($IsWindows) {
+        Remove-Alias cat
+    }
+
     function cat($file) {
         bat --plain $file
     }
