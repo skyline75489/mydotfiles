@@ -1,31 +1,40 @@
+# Env
 if (-Not $IsWindows) {
     $env:USERNAME = $env:USER
     $env:COMPUTERNAME = $(hostname)
+}
 
-    if (Get-Command "exa" -ErrorAction SilentlyContinue)
-    {
-        function l {
-            exa -la
+# List direcory contents
+if (Get-Command "exa" -ErrorAction SilentlyContinue) {
+    if ($IsWindows) {
+        Remove-Alias ls
+        function ls($param) {
+            exa $param
         }
-
+    }
+    else {
         function ls {
             exa
-        }
-
-        function ll {
-            exa -l --git
-        }
-
-        function la {
-            exa -la --git
         }
 
         function sl {
             exa
         }
     }
-    else
-    {
+    function l {
+        exa -la
+    }
+
+    function ll {
+        exa -l --git
+    }
+
+    function la {
+        exa -la --git
+    }
+}
+else {
+    if (-Not $IsWindows) {
         function l {
             ls -lah
         }
@@ -38,51 +47,7 @@ if (-Not $IsWindows) {
             ls -lAhG
         }
     }
-
-    if (Get-Command "bat" -ErrorAction SilentlyContinue)
-    {
-        function cat($file) {
-            bat --plain $file
-        }
-
-        function catn($file) {
-            bat $file
-        }
-    }
-
-    if (Get-Command "batcat" -ErrorAction SilentlyContinue)
-    {
-        function cat($file) {
-            batcat --plain $file
-        }
-
-        function catn($file) {
-            batcat $file
-        }
-    }
-
-} else {
-    if (Get-Command "exa.exe" -ErrorAction SilentlyContinue)
-    {
-        Remove-Alias ls
-        function l {
-            exa -la
-        }
-
-        function ls {
-            exa
-        }
-
-        function ll {
-            exa -l --git
-        }
-
-        function la {
-            exa -la --git
-        }
-    }
-    else
-    {
+    else {
         function l {
             ls -Force
         }
@@ -95,20 +60,53 @@ if (-Not $IsWindows) {
             ls -Force
         }
     }
+}
 
-    if (Get-Command "bat.exe" -ErrorAction SilentlyContinue)
-    {
-        Remove-Alias cat
-        function cat($file) {
-            bat.exe --plain $file
-        }
+# Cat
+if (Get-Command "bat" -ErrorAction SilentlyContinue) {
+    function cat($file) {
+        bat --plain $file
+    }
 
-        function catn($file) {
-            bat.exe $file
-        }
+    function catn($file) {
+        bat $file
     }
 }
 
+if (Get-Command "batcat" -ErrorAction SilentlyContinue) {
+    function cat($file) {
+        batcat --plain $file
+    }
+
+    function catn($file) {
+        batcat $file
+    }
+}
+
+# Git
+if (Get-Command "git" -ErrorAction SilentlyContinue) {
+    function gck($branch) {
+        git checkout $branch
+    }
+
+    function gd($param) {
+        git diff $param
+    }
+
+    function gs($param) {
+        git status $param
+    }
+
+    function gcam($param) {
+        git commit -am $param
+    }
+
+    function gp($param) {
+        git push $param
+    }
+}
+
+# Basic directory operations
 function .. {
     cd ..
 }
