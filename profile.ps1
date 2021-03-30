@@ -117,6 +117,10 @@ if (Get-Command "git" -ErrorAction SilentlyContinue) {
     function gph($param) {
         git push $param
     }
+
+    function grs($param) {
+        git restore $param
+    }
 }
 
 # Basic directory operations
