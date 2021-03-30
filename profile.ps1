@@ -97,12 +97,25 @@ if (Get-Command "git" -ErrorAction SilentlyContinue) {
         git diff $param
     }
 
+
+    if (Get-Command "glg" -ErrorAction SilentlyContinue) {
+        Remove-Alias glg
+    }
+
+    function glg($param){
+        git log $param
+    }
+
     function gs($param) {
         git status $param
     }
 
     function gcam($param) {
         git commit -am $param
+    }
+
+    function gph($param) {
+        git push $param
     }
 }
 
