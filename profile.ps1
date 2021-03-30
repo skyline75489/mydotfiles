@@ -100,10 +100,6 @@ if (Get-Command "git" -ErrorAction SilentlyContinue) {
     function gcam($param) {
         git commit -am $param
     }
-
-    function gp($param) {
-        git push $param
-    }
 }
 
 # Basic directory operations
