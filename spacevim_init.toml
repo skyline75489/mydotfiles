@@ -36,4 +36,4 @@ default_position = 'bottom'
 default_height = 30
 
 [[layers]]
-name = "colorscheme
+name = "colorscheme"
