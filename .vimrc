@@ -137,6 +137,7 @@ cmap <f29> <nop>
 
 call plug#begin()
   Plug 'preservim/nerdtree'
+  Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " Start NERDTree, unless a file or session is specified, eg. vim -S
