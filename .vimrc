@@ -136,7 +136,8 @@ cmap <f29> <nop>
 
 
 call plug#begin()
-  Plug 'preservim/nerdtree'
+  Plug 'preservim/nerdtree' |
+            \ Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'tpope/vim-fugitive'
 call plug#end()
 
