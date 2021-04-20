@@ -21,11 +21,8 @@ set nocompatible
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file
-endif
+
+set nobackup		" do not keep a backup file, use versions instead
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
@@ -99,7 +96,14 @@ set cursorline
 set tabstop=8
 set expandtab
 syntax on
-"le g:solarized_termcolors=256
+if exists('+termguicolors')
+  if !has('nvim') " ------- Vim8
+    let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+  endif
+  " ------- Vim8.0 & NVim
+  set termguicolors
+endif
 
 set nobackup
 
