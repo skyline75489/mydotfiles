@@ -18,6 +18,14 @@ set tabstop=8
 set expandtab
 syntax on
 set hidden
+if exists('+termguicolors')
+  if !has('nvim') " ------- Vim8
+    let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+  endif
+  " ------- Vim8.0 & NVim
+  set termguicolors
+endif
 
 set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936
 set laststatus=2
