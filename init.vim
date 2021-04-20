@@ -17,7 +17,11 @@ set cursorline
 set tabstop=8
 set expandtab
 syntax on
+set autoread
 set hidden
+set autochdir
+set lazyredraw
+
 if exists('+termguicolors')
   if !has('nvim') " ------- Vim8
     let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
@@ -41,6 +45,7 @@ call plug#begin()
   Plug 'preservim/nerdtree' |
             \ Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'tpope/vim-fugitive'
+  Plug 'mhinz/vim-signify'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'pacha/vem-tabline'
