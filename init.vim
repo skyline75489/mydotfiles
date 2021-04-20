@@ -21,6 +21,7 @@ set autoread
 set hidden
 set autochdir
 set lazyredraw
+set clipboard=unnamedplus 
 
 if exists('+termguicolors')
   if !has('nvim') " ------- Vim8
@@ -84,7 +85,7 @@ nnoremap <silent> <C-g>b :call FZFOpen(':Buffers')<CR>
 nnoremap <silent> <C-g>g :call FZFOpen(':Ag')<CR>
 nnoremap <silent> <C-g>c :call FZFOpen(':Commands')<CR>
 nnoremap <silent> <C-g>l :call FZFOpen(':BLines')<CR>
-nnoremap <silent> <C-p> :call FZFOpen(':Files')<CR>
+nnoremap <silent> <C-g>p :call FZFOpen(':Files')<CR>
 
 let g:vem_tabline_show_number = 'index'
 
