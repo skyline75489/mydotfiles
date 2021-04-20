@@ -35,24 +35,26 @@ endif
 set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936
 set laststatus=2
 
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+if !has("win32")
+  let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+  if empty(glob(data_dir . '/autoload/plug.vim'))
+    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  endif
 endif
 
 call plug#begin()
-  Plug 'dracula/vim', { 'as': 'dracula' }
-  Plug 'preservim/nerdtree' |
-            \ Plug 'Xuyuanp/nerdtree-git-plugin'
-  Plug 'tpope/vim-fugitive'
-  Plug 'mhinz/vim-signify'
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
-  Plug 'pacha/vem-tabline'
-  Plug 'mhinz/vim-startify'
-  Plug 'Yggdroot/indentLine'
-  Plug 'tpope/vim-commentary'
+  Plug 'git@github.com:dracula/vim', { 'as': 'dracula' }
+  Plug 'git@github.com:preservim/nerdtree' |
+            \ Plug 'git@github.com:Xuyuanp/nerdtree-git-plugin'
+  Plug 'git@github.com:tpope/vim-fugitive.git'
+  Plug 'git@github.com:mhinz/vim-signify.git'
+  Plug 'git@github.com:junegunn/fzf.git', { 'do': { -> fzf#install() } }
+  Plug 'git@github.com:junegunn/fzf.vim.git'
+  Plug 'git@github.com:pacha/vem-tabline.git'
+  Plug 'git@github.com:mhinz/vim-startify.git'
+  Plug 'git@github.com:Yggdroot/indentLine.git'
+  Plug 'git@github.com:tpope/vim-commentary.git'
 call plug#end()
 
 colorscheme dracula
@@ -89,19 +91,18 @@ nnoremap <silent> <C-g>p :call FZFOpen(':Files')<CR>
 
 let g:vem_tabline_show_number = 'index'
 
- nmap <leader>1 :VemTablineGo 1<CR>
-    nmap <leader>2 :VemTablineGo 2<CR>
-    nmap <leader>3 :VemTablineGo 3<CR>
-    nmap <leader>4 :VemTablineGo 4<CR>
-    nmap <leader>5 :VemTablineGo 5<CR>
-    nmap <leader>6 :VemTablineGo 6<CR>
-    nmap <leader>7 :VemTablineGo 7<CR>
-    nmap <leader>8 :VemTablineGo 8<CR>
-    nmap <leader>9 :VemTablineGo 9<CR>
+nmap <leader>1 :VemTablineGo 1<CR>
+nmap <leader>2 :VemTablineGo 2<CR>
+nmap <leader>3 :VemTablineGo 3<CR>
+nmap <leader>4 :VemTablineGo 4<CR>
+nmap <leader>5 :VemTablineGo 5<CR>
+nmap <leader>6 :VemTablineGo 6<CR>
+nmap <leader>7 :VemTablineGo 7<CR>
+nmap <leader>8 :VemTablineGo 8<CR>
+nmap <leader>9 :VemTablineGo 9<CR>
 
-     nmap <leader>p <Plug>vem_prev_buffer-
-    nmap <leader>n <Plug>vem_next_buffer-
+nmap <leader>p <Plug>vem_prev_buffer-
+nmap <leader>n <Plug>vem_next_buffer-
 
-    nmap <leader>x <Plug>vem_delete_buffer-
-
+nmap <leader>x <Plug>vem_delete_buffer- :NERDTreeToggle<CR>
 
