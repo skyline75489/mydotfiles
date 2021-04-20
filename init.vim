@@ -77,6 +77,7 @@ function! FZFOpen(command_str)
   exe 'normal! ' . a:command_str . "\<cr>"
 endfunction
 
+tnoremap <Esc>    <C-\><C-n>
 nnoremap <silent> <C-g>f :NERDTreeToggle<CR>
 
 nnoremap <silent> <C-g>b :call FZFOpen(':Buffers')<CR>
