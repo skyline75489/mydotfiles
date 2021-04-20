@@ -6,6 +6,10 @@ set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 
+if has('mouse')
+  set mouse=a
+endif
+
 set hlsearch
 
 set number
