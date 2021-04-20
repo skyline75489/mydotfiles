@@ -37,6 +37,7 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 call plug#begin()
+  Plug 'dracula/vim', { 'as': 'dracula' }
   Plug 'preservim/nerdtree' |
             \ Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'tpope/vim-fugitive'
@@ -44,6 +45,8 @@ call plug#begin()
   Plug 'junegunn/fzf.vim'
   Plug 'pacha/vem-tabline'
 call plug#end()
+
+colorscheme dracula
 
 " Start NERDTree, unless a file or session is specified, eg. vim -S
 " session_file.vim.
