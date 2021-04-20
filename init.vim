@@ -50,6 +50,8 @@ call plug#begin()
   Plug 'junegunn/fzf.vim'
   Plug 'pacha/vem-tabline'
   Plug 'mhinz/vim-startify'
+  Plug 'Yggdroot/indentLine'
+  Plug 'tpope/vim-commentary'
 call plug#end()
 
 colorscheme dracula
@@ -65,10 +67,6 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
 " Open the existing NERDTree on each new tab.
 autocmd BufWinEnter * silent NERDTreeMirror
 
-" Exit Vim if NERDTree is the only window left.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-   \ quit | endif
-
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
@@ -79,19 +77,29 @@ function! FZFOpen(command_str)
   exe 'normal! ' . a:command_str . "\<cr>"
 endfunction
 
+nnoremap <silent> <C-g>f :NERDTreeToggle<CR>
+
 nnoremap <silent> <C-g>b :call FZFOpen(':Buffers')<CR>
 nnoremap <silent> <C-g>g :call FZFOpen(':Ag')<CR>
 nnoremap <silent> <C-g>c :call FZFOpen(':Commands')<CR>
 nnoremap <silent> <C-g>l :call FZFOpen(':BLines')<CR>
 nnoremap <silent> <C-p> :call FZFOpen(':Files')<CR>
 
-nnoremap <leader>1 :1tabnext<CR>
-nnoremap <leader>2 :2tabnext<CR>
-nnoremap <leader>3 :3tabnext<CR>
-nnoremap <leader>4 :4tabnext<CR>
-nnoremap <leader>5 :5tabnext<CR>
-nnoremap <leader>6 :6tabnext<CR>
-nnoremap <leader>7 :7tabnext<CR>
-nnoremap <leader>8 :8tabnext<CR>
-nnoremap <leader>9 :9tabnext<CR>
+let g:vem_tabline_show_number = 'index'
+
+ nmap <leader>1 :VemTablineGo 1<CR>
+    nmap <leader>2 :VemTablineGo 2<CR>
+    nmap <leader>3 :VemTablineGo 3<CR>
+    nmap <leader>4 :VemTablineGo 4<CR>
+    nmap <leader>5 :VemTablineGo 5<CR>
+    nmap <leader>6 :VemTablineGo 6<CR>
+    nmap <leader>7 :VemTablineGo 7<CR>
+    nmap <leader>8 :VemTablineGo 8<CR>
+    nmap <leader>9 :VemTablineGo 9<CR>
+
+     nmap <leader>p <Plug>vem_prev_buffer-
+    nmap <leader>n <Plug>vem_next_buffer-
+
+    nmap <leader>x <Plug>vem_delete_buffer-
+
 
