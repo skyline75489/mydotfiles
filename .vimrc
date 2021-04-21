@@ -138,24 +138,33 @@ vmap <expr> <f28> XTermPasteBegin("c")
 cmap <f28> <nop>
 cmap <f29> <nop>
 
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+if !has("win32")
+  let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+  if empty(glob(data_dir . '/autoload/plug.vim'))
+    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  endif
 endif
 
 call plug#begin()
-  Plug 'preservim/nerdtree' |
-            \ Plug 'Xuyuanp/nerdtree-git-plugin'
-  Plug 'tpope/vim-fugitive'
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
+  Plug 'git@github.com:dracula/vim', { 'as': 'dracula' }
+  Plug 'git@github.com:preservim/nerdtree' |
+            \ Plug 'git@github.com:Xuyuanp/nerdtree-git-plugin'
+  Plug 'git@github.com:tpope/vim-fugitive.git'
+  Plug 'git@github.com:mhinz/vim-signify.git'
+  Plug 'git@github.com:junegunn/fzf.git', { 'do': { -> fzf#install() } }
+  Plug 'git@github.com:junegunn/fzf.vim.git'
+  Plug 'git@github.com:pacha/vem-tabline.git'
+  Plug 'git@github.com:mhinz/vim-startify.git'
+  Plug 'git@github.com:Yggdroot/indentLine.git'
+  Plug 'git@github.com:tpope/vim-commentary.git'
 call plug#end()
 
-" Start NERDTree, unless a file or session is specified, eg. vim -S
-" session_file.vim.
+colorscheme dracula
+
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
+    \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
 
 " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
 autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
@@ -164,9 +173,8 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
 " Open the existing NERDTree on each new tab.
 autocmd BufWinEnter * silent NERDTreeMirror
 
-" Exit Vim if NERDTree is the only window left.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-   \ quit | endif
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
 
 function! FZFOpen(command_str)
   if (expand('%') =~# 'NERD_tree' && winnr('$') > 1)
@@ -175,10 +183,29 @@ function! FZFOpen(command_str)
   exe 'normal! ' . a:command_str . "\<cr>"
 endfunction
 
+tnoremap <Esc>    <C-\><C-n>
+nnoremap <silent> <C-g>f :NERDTreeToggle<CR>
+
 nnoremap <silent> <C-g>b :call FZFOpen(':Buffers')<CR>
 nnoremap <silent> <C-g>g :call FZFOpen(':Ag')<CR>
 nnoremap <silent> <C-g>c :call FZFOpen(':Commands')<CR>
 nnoremap <silent> <C-g>l :call FZFOpen(':BLines')<CR>
-nnoremap <silent> <C-p> :call FZFOpen(':Files')<CR>
+nnoremap <silent> <C-g>p :call FZFOpen(':Files')<CR>
 
+let g:vem_tabline_show_number = 'index'
+
+nmap <leader>1 :VemTablineGo 1<CR>
+nmap <leader>2 :VemTablineGo 2<CR>
+nmap <leader>3 :VemTablineGo 3<CR>
+nmap <leader>4 :VemTablineGo 4<CR>
+nmap <leader>5 :VemTablineGo 5<CR>
+nmap <leader>6 :VemTablineGo 6<CR>
+nmap <leader>7 :VemTablineGo 7<CR>
+nmap <leader>8 :VemTablineGo 8<CR>
+nmap <leader>9 :VemTablineGo 9<CR>
+
+nmap <leader>p <Plug>vem_prev_buffer-
+nmap <leader>n <Plug>vem_next_buffer-
+
+nmap <leader>x <Plug>vem_delete_buffer- :NERDTreeToggle<CR>
 
