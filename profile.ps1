@@ -14,23 +14,23 @@ if (Get-Command "exa" -ErrorAction SilentlyContinue) {
     }
     else {
         function ls {
-            exa
+            exa --group-directories-first
         }
 
         function sl {
-            exa
+            exa --group-directories-first
         }
     }
     function l {
-        exa -la
+        exa -la --group-directories-first
     }
 
     function ll {
-        exa -l --git
+        exa -l --git --group-directories-first
     }
 
     function la {
-        exa -la --git
+        exa -la --git --group-directories-first
     }
 }
 else {
