@@ -38,6 +38,13 @@ if wezterm.target_triple == "x86_64-apple-darwin" then
 end
 
 return {
+	window_frame = {
+		font_size = 14.0,
+	},
+	colors = {
+		tab_bar = {
+		}
+	},
 	color_scheme = "Dracula",
 	font_size = 14,
 	keys = mykeys,
