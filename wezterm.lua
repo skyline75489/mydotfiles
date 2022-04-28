@@ -25,6 +25,16 @@ for i = 1, 8 do
     key="F" .. tostring(i),
     action=wezterm.action{ActivateTab=i-1},
   })
+  table.insert(mykeys, {
+    key="LeftArrow",
+    mods="OPT",
+    action=wezterm.action{SendString="\x1bb"}
+  })
+  table.insert(mykeys, {
+    key="RightArrow",
+    mods="OPT",
+    action=wezterm.action{SendString="\x1bf"}
+  })
 end
 
 
