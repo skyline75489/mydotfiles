@@ -26,6 +26,11 @@ for i = 1, 8 do
     action=wezterm.action{ActivateTab=i-1},
   })
   table.insert(mykeys, {
+    key="Enter",
+    mods="CMD",
+    action="ToggleFullScreen",
+  })
+  table.insert(mykeys, {
     key="LeftArrow",
     mods="OPT",
     action=wezterm.action{SendString="\x1bb"}
@@ -57,13 +62,13 @@ return {
   },
   color_scheme = "Dracula",
   font = wezterm.font_with_fallback({
-    "Monaco",
     "JetBrains Mono",
     "Noto Sans Mono CJK SC",
   }),
   font_size = 14,
   keys = mykeys,
   default_prog = default_prog,
+  native_macos_fullscreen_mode = true,
   mouse_bindings = {
     -- Right click sends "PasteFromClipboard" to the terminal
     {
