@@ -27,8 +27,19 @@ for i = 1, 8 do
   })
 end
 
+
+local default_prog = { 'bash', '-l' }
+
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+	default_prog = { 'pwsh.exe', '-NoLogo' }
+end
+if wezterm.target_triple == "x86_64-apple-darwin" then 
+	default_prog = { 'zsh', '-l' }
+end
+
 return {
 	color_scheme = "Dracula",
 	font_size = 14,
 	keys = mykeys,
+	default_prog = default_prog
 }
