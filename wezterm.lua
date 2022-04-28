@@ -46,6 +46,10 @@ return {
     }
   },
   color_scheme = "Dracula",
+  font = wezterm.font_with_fallback({
+    "JetBrains Mono",
+    "Noto Sans Mono CJK SC",
+  }),
   font_size = 14,
   keys = mykeys,
   default_prog = default_prog,
