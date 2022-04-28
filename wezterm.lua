@@ -47,6 +47,7 @@ return {
   },
   color_scheme = "Dracula",
   font = wezterm.font_with_fallback({
+    "Monaco",
     "JetBrains Mono",
     "Noto Sans Mono CJK SC",
   }),
@@ -54,7 +55,7 @@ return {
   keys = mykeys,
   default_prog = default_prog,
   mouse_bindings = {
-    -- Right click sends "woot" to the terminal
+    -- Right click sends "PasteFromClipboard" to the terminal
     {
       event={Down={streak=1, button="Right"}},
       mods="NONE",
