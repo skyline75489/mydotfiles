@@ -3,6 +3,12 @@ if (-Not $IsWindows) {
     $env:USERNAME = $env:USER
     $env:COMPUTERNAME = $(hostname)
 }
+# `which` on Windows
+else {
+    function which($param) {
+        (Get-Command $param).source
+    }
+}
 
 # List direcory contents
 if (Get-Command "exa" -ErrorAction SilentlyContinue) {
