@@ -1,5 +1,5 @@
 # PATH
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.cargo/bin:/usr/local/go/bin:$HOME/.local/bin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.cargo/bin:/usr/local/go/bin:$HOME/.local/bin:$HOME/.linuxbrew/bin"
 export GO11MODULE=on
 export GO111MODULE=on
 export GOPROXY=https://goproxy.io
