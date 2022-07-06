@@ -158,7 +158,8 @@ function prompt {
     Write-Host $p -NoNewLine
     "PS $('>' * ($nestedPromptLevel + 1)) ";
     if ($env:TERM_PROGRAM) {
-        Write-Host "$ansi_escape]7;file://$env:COMPUTERNAME/$converted_path$ansi_escape\" -NoNewline
+        $converted_path = $converted_path -Replace "\\", "/"
+        Write-Host "$ansi_escape]7;file://$env:COMPUTERNAME/$converted_path$ansi_escape\"
     }
     if ($env:WT_SESSION) {
         Write-Host "$ansi_escape]9;9;$converted_path$ansi_escape\"
