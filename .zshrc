@@ -272,8 +272,6 @@ if [[ $use_sudo -eq 1 ]]; then
     # acs ... | ail
     alias ail="sed -e 's/  */ /g' -e 's/ *//' | cut -s -d ' ' -f 1 | "' xargs sudo $apt_pref install'
     alias ap='sudo $apt_pref purge'
-    alias ar='sudo $apt_pref remove'
-
     # apt-get only
     alias ads='sudo apt-get dselect-upgrade'
 
